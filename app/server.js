@@ -1,4 +1,4 @@
-const insertIntoTable = require("./db.js").insertIntoTable;
+// const insertIntoTable = require("./db.js").insertIntoTable;
 
 const express = require("express");
 const app = express();
@@ -27,16 +27,16 @@ const createHTMLBody = (content) => {
   return `<html><body style="background-color: ${bgColor}; color: ${fgColor};">${content}</body></html>`;
 };
 
-app.use((req, res, next) => {
-  const ip = req.ip;
-  const method = req.method;
-  const path = req.path;
-  const userAgent = req.headers["user-agent"];
+// app.use((req, res, next) => {
+//   const ip = req.ip;
+//   const method = req.method;
+//   const path = req.path;
+//   const userAgent = req.headers["user-agent"];
 
-  insertIntoTable(ip, method, path, userAgent);
+//   insertIntoTable(ip, method, path, userAgent);
 
-  next();
-});
+//   next();
+// });
 
 app.get("/", (req, res) => {
   res.send(createHTMLBody("Hello World!"));
